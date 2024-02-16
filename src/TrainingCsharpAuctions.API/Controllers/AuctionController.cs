@@ -4,9 +4,7 @@ using TrainingCsharpAuctions.API.UseCases.Auctions.GetCurrent;
 
 namespace TrainingCsharpAuctions.API.Controllers;
 
-[Route("api/[controller]")]
-[ApiController]
-public class AuctionController : ControllerBase
+public class AuctionController : TrainingCsharpAuctionsBaseController
 {
     [HttpGet]
     [ProducesResponseType(typeof(Auction), StatusCodes.Status200OK)]
