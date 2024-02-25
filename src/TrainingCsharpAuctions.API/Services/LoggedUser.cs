@@ -1,24 +1,24 @@
-﻿using TrainingCsharpAuctions.API.Entities;
-using TrainingCsharpAuctions.API.Repositories;
-
+﻿using TrainingCsharpAuctions.API.Contracts;
+using TrainingCsharpAuctions.API.Entities;
 namespace TrainingCsharpAuctions.API.Services;
 
-public class LoggedUser
+public class LoggedUser : ILoggedUser
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
-    public LoggedUser(IHttpContextAccessor httpContext)
+    private readonly IUserRepository _repository;
+
+    public LoggedUser(IHttpContextAccessor httpContext, IUserRepository repository)
     {
         _httpContextAccessor = httpContext;
+        _repository = repository;
     }
+
     public User User()
     {
-        var repository = new TrainingCsharpAuctionsDbContext();
-
         var token = TokenOnRequest();
-
         var email = FromBase64String(token);
 
-        return repository.Users.First(user => user.Email.Equals(email));
+        return _repository.GetUserByEmail(email);
     }
 
     private string TokenOnRequest()

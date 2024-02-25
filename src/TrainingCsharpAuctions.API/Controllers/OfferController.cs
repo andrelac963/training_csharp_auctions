@@ -5,12 +5,15 @@ using TrainingCsharpAuctions.API.UseCases.Offers.CreateOffer;
 
 namespace TrainingCsharpAuctions.API.Controllers;
 
-[ServiceFilter(typeof(AuthenticationUserAttribute))]
+[ServiceFilter(typeof(AuthenticationUserAttibute))]
 public class OfferController : TrainingCsharpAuctionsBaseController
 {
     [HttpPost]
     [Route("{itemId}")]
-    public IActionResult CreateOffer([FromRoute]int itemId, [FromBody] RequestCreateOfferJson request, [FromServices] CreateOfferUseCase useCase)
+    public IActionResult CreateOffer(
+        [FromRoute] int itemId,
+        [FromBody] RequestCreateOfferJson request,
+        [FromServices] CreateOfferUseCase useCase)
     {
         var id = useCase.Execute(itemId, request);
 

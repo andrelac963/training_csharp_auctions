@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using TrainingCsharpAuctions.API.Contracts;
 using TrainingCsharpAuctions.API.Filters;
+using TrainingCsharpAuctions.API.Repositories;
+using TrainingCsharpAuctions.API.Repositories.DataAccess;
 using TrainingCsharpAuctions.API.Services;
+using TrainingCsharpAuctions.API.UseCases.Auctions.GetCurrent;
 using TrainingCsharpAuctions.API.UseCases.Offers.CreateOffer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,9 +44,19 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-builder.Services.AddScoped<AuthenticationUserAttribute>();
-builder.Services.AddScoped<LoggedUser>();
+builder.Services.AddScoped<AuthenticationUserAttibute>();
+builder.Services.AddScoped<ILoggedUser, LoggedUser>();
 builder.Services.AddScoped<CreateOfferUseCase>();
+builder.Services.AddScoped<GetCurrentAuctionUseCase>();
+builder.Services.AddScoped<IAuctionRepository, AuctionRepository>();
+builder.Services.AddScoped<IOfferRepository, OfferRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
+builder.Services.AddDbContext<TrainingCsharpAuctionsDbContext>(options =>
+{
+    options.UseSqlite("Data Source=C:\\Users\\dtiDigital\\OneDrive - dti digital crafters\\Documentos\\leilaoDbNLW.db");
+});
 
 builder.Services.AddHttpContextAccessor();
 
