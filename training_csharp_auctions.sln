@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{C43CF1F2
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingCsharpAuctions.API", "src\TrainingCsharpAuctions.API\TrainingCsharpAuctions.API.csproj", "{D58CA618-8690-4878-8567-FF74338E4BA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseCases.Test", "tests\UseCases.Test\UseCases.Test.csproj", "{F7A4DAB5-463F-410F-BCCE-0B78C493243E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,12 +21,17 @@ Global
 		{D58CA618-8690-4878-8567-FF74338E4BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D58CA618-8690-4878-8567-FF74338E4BA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D58CA618-8690-4878-8567-FF74338E4BA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A4DAB5-463F-410F-BCCE-0B78C493243E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A4DAB5-463F-410F-BCCE-0B78C493243E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A4DAB5-463F-410F-BCCE-0B78C493243E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A4DAB5-463F-410F-BCCE-0B78C493243E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D58CA618-8690-4878-8567-FF74338E4BA2} = {3AB4098C-D18D-46E5-8FDC-2FB4917E942C}
+		{F7A4DAB5-463F-410F-BCCE-0B78C493243E} = {C43CF1F2-F85F-4DF6-A1E0-CDA93A249316}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {813E72F0-973F-4404-9E2B-212E668C4D80}
